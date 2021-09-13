@@ -5,16 +5,17 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "build:development": "env-cmd -f .env.development yarn build",
-    "build:testing": "env-cmd -f .env.testing yarn build",
-    "build:staging": "env-cmd -f .env.staging yarn build",
+    "build:development": "yarn pre-build env-cmd -f .env.development yarn build",
+    "build:testing": "yarn pre-build env-cmd -f .env.testing yarn build",
+    "build:staging": "yarn pre-build env-cmd -f .env.staging yarn build",
     "build:production": "env-cmd -f .env.production yarn build",
     "lint:js": "eslint '{src,testcafe}/**/*.{js,jsx,ts,tsx}' --max-warnings=0",
     "lint:js:fix": "yarn lint:js --fix",
     "lint:scss": "stylelint '**/*.scss'",
     "lint:scss:fix": "yarn lint:scss --fix",
     "test:unit": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-build": "node scripts/merge_env_variables.js"
   },
   "lint-staged": {
     "./public/**/*.svg": "svgo",
