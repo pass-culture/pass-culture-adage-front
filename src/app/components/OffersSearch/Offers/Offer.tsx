@@ -52,13 +52,13 @@ export const Offer = ({ result }: { result: ResultType }): JSX.Element => {
             <h3>
               Quoi ?
             </h3>
-            Théâtre
+            {offer.category.label}
           </section>
           <section>
             <h3>
               Et en détails ? :
             </h3>
-            Le soleil me rencontre....
+            {offer.description}
           </section>
           <section>
             <h3>

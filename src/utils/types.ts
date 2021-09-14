@@ -1,14 +1,24 @@
 export interface VenueType {
   address: string;
   city: string;
-  latitude: string;
-  longitude: string;
+  coordinates: {
+    latitude: number;
+    longitude: number;
+  };
   name: string;
   postalCode: string;
   publicName: string;
 }
 
 export interface OfferType {
+  id: number;
+  name: string;
+  category: {
+    categoryType: string;
+    label: string;
+    name: string;
+  };
+  description: string;
   venue: VenueType;
   stocks: StockType[];
 }
@@ -24,7 +34,7 @@ export interface StockType {
 }
 
 export interface ResultType {
-  dates: { raw: string | null };
+  dates: { raw: string[] | null };
   id: { raw: string };
   name: { raw: string };
   thumb_url: { raw: string | null };
